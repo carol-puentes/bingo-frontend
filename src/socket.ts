@@ -12,10 +12,7 @@ const URL = import.meta.env.DEV
 
 export const socket = io(URL);
 // Aquí agregas los logs
-socket.on("connect", () => {
-  console.log("✅ Conectado al servidor:", socket.id);
-});
-
-socket.on("disconnect", () => {
-  console.log("❌ Desconectado del servidor");
-});
+socket.on("connect", () => console.log("✅ Conectado al servidor", socket.id));
+socket.on("disconnect", () => console.log("❌ Desconectado del servidor"));
+socket.on("system-message", (msg: string) => console.log("💬", msg));
+socket.on("error-room", (msg: string) => console.log("⚠️", msg));
