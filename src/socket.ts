@@ -7,8 +7,7 @@
 import { io } from "socket.io-client";
 
 const URL = import.meta.env.DEV
-//   ? "http://localhost:3000"           
-  ? "https://bingo-server-3o35.onrender.com "        // desarrollo
+  ? "http://localhost:3000"                   // desarrollo
   : "https://bingo-server-3o35.onrender.com";  // producción (Render)
 
 export const socket = io(URL);
