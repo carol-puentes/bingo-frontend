@@ -3,7 +3,8 @@ import React, { useEffect, useState } from "react";
 import { socket } from "./socket";
 import { BingoCardComponent } from "./BingoCard";
 import { BingoCard, CalledNumber } from "./types";
-
+import bingo from './img/bingo-fondo.png';
+ 
 function generateBingoCard(): BingoCard {
   const ranges = {
     B: [1, 15],
@@ -98,8 +99,10 @@ export default function App() {
 
   if (!role)
     return (
-      <div className="container">
-        <h1>Bingo Multijugador 🎲</h1>
+      <div className="main">
+        <div className="container">
+          <img className="img-container" src={bingo}/>
+        <h1>!UNETE A LA DIVERSION! 🎲</h1>
 
         <label>ID de sala:</label>
         <input
@@ -119,6 +122,7 @@ export default function App() {
 
         <button onClick={() => handleRoleSelect("admin")}>Administrador</button>
         <button onClick={() => handleRoleSelect("player")}>Jugador</button>
+        </div>
       </div>
     );
 
