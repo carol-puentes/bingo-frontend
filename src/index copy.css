@@ -1,0 +1,252 @@
+body {
+  font-family: sans-serif;
+  text-align: center;
+  /* background: radial-gradient(circle, #dc8383, #ff0707); */
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  /* background-image: url("../public/fondoo.png");
+   */
+}
+
+.main{
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  justify-content: center;
+  align-items: center;
+   /* background-color: #4bf5a9; */
+}
+
+.right-main{
+  width: 50vw;
+}
+
+.text-main{
+  font-size: 2vw;
+  color: #c40b0b;
+}
+
+
+.left-main {
+  background: linear-gradient(135deg, #8b0000, #c21807, #ff4d4d);
+  background-size: 400% 400%;
+  animation: gradientMove 10s ease infinite;
+  position: relative;
+  overflow: hidden;
+   width: 50vw;
+  height: 100vh;
+}
+
+
+
+.layer {
+  position: absolute;
+  inset: 0;
+  opacity: 0.85;
+}
+
+/* Capa 1 */
+.layer:nth-child(1) {
+  background: #ff2a2a;
+  clip-path: polygon(96% 0%, 100% 0%, 100% 75.5%, 20% 33%);
+}
+
+/* Capa 2 */
+.layer:nth-child(2) {
+  background: #ac0505;
+  clip-path: polygon(96% 0%, 100% 0%, 100% 94%, 0.5% 41.5%);
+}
+
+/* Capa 3 */
+.layer:nth-child(3) {
+  background: #8a0808;
+  clip-path: polygon(0% 41%, 0% 100%, 100% 100%, 100% 94%);
+}
+
+/* Capa 4 */
+.layer:nth-child(4) {
+  background:#980303 ;
+  clip-path: polygon(0% 30%, 0% 30%, 0% 0%, 70% 0%);
+}
+
+
+.container {
+  min-height: 80vh;
+  /* background-color: #4b8bf5; */
+}
+
+.img-container{
+  max-height: 50vh;
+  width: 75%;
+}
+
+.bingo-card {
+  display: inline-block;
+  margin: 1rem;
+}
+
+.header, .row {
+  display: grid;
+  grid-template-columns: repeat(5, 60px);
+}
+
+.cell, .header div {
+  border: 1px solid #aaa;
+  padding: 10px;
+  margin: 1px;
+  background: white;
+}
+
+.header div {
+  font-weight: bold;
+  background: #4b8bf5;
+  color: white;
+}
+
+.cell.marked {
+  background: #81f581;
+}
+
+
+
+
+/* From Uiverse.io by AbanoubMagdy1 */ 
+.wave-group {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.input-container {
+  position: relative;
+  display: inline-block;
+}
+
+
+.wave-group .input {
+  font-size: 16px;
+  padding: 10px 10px 10px 5px;
+  display: block;
+  width: 200px;
+  border: none;
+  border-bottom: 1px solid #f30b0b;
+  background: transparent;
+}
+
+.wave-group .input:focus {
+  outline: none;
+}
+
+.wave-group .label {
+  color: #999;
+  font-size: 18px;
+  font-weight: normal;
+  position: absolute;
+  pointer-events: none;
+  left: 5px;
+  top: 10px;
+  display: flex;
+}
+
+.wave-group .label-char {
+  transition: 0.2s ease all;
+  transition-delay: calc(var(--index) * .05s);
+}
+
+.wave-group .input:focus ~ label .label-char,
+.wave-group .input:valid ~ label .label-char {
+  transform: translateY(-20px);
+  font-size: 14px;
+  color: #5264AE;
+}
+
+.wave-group .bar {
+  position: relative;
+  display: block;
+  width: 200px;
+}
+
+.wave-group .bar:before,.wave-group .bar:after {
+  content: '';
+  height: 2px;
+  width: 0;
+  bottom: 1px;
+  position: absolute;
+  background: #5264AE;
+  transition: 0.2s ease all;
+  -moz-transition: 0.2s ease all;
+  -webkit-transition: 0.2s ease all;
+}
+
+.wave-group .bar:before {
+  left: 50%;
+}
+
+.wave-group .bar:after {
+  right: 50%;
+}
+
+.wave-group .input:focus ~ .bar:before,
+.wave-group .input:focus ~ .bar:after {
+  width: 50%;
+}
+
+
+
+
+
+
+
+
+
+/* BOTON ADMI-USER*/
+/* From Uiverse.io by AlimurtuzaCodes */ 
+
+.Buttons{
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn {
+  border: none;
+  width: 40%;
+  height: 4em;
+  border-radius: 3em;
+  gap: 12px;
+  background: #1C1A1C;
+  cursor: pointer;
+  transition: all 450ms ease-in-out;
+  
+}
+
+.sparkle {
+  fill: #AAAAAA;
+  transition: all 800ms ease;
+}
+
+.text {
+  font-weight: 600;
+  color: #AAAAAA;
+  font-size: medium;
+}
+
+.btn:hover {
+  background: linear-gradient(0deg,#A47CF3,#683FEA);
+  box-shadow: inset 0px 1px 0px 0px rgba(255, 255, 255, 0.4),
+  inset 0px -4px 0px 0px rgba(0, 0, 0, 0.2),
+  0px 0px 0px 4px rgba(255, 255, 255, 0.2),
+  0px 0px 180px 0px #9917FF;
+  transform: translateY(-2px);
+}
+
+.btn:hover .text {
+  color: white;
+}
+
+.btn:hover .sparkle {
+  fill: white;
+  transform: scale(1.2);
+} 
