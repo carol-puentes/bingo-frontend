@@ -1,10 +1,10 @@
-
 import React, { useEffect, useState } from "react";
 import { socket } from "./socket";
 import { BingoCardComponent } from "./BingoCard";
 import { BingoCard, CalledNumber } from "./types";
-import bingo from './img/bingo-fondo.png';
- 
+import bingo from "./img/bingo-fondo.png";
+import { InputCardComponent } from "./sala";
+
 function generateBingoCard(): BingoCard {
   const ranges = {
     B: [1, 15],
@@ -38,7 +38,8 @@ export default function App() {
   const [calledNumbers, setCalledNumbers] = useState<CalledNumber[]>([]);
   const [winner, setWinner] = useState<string | null>(null);
   const [lastNumber, setLastNumber] = useState<CalledNumber | null>(null);
-  const [roomId, setRoomId] = useState("room1");
+  const [roomId, setRoomId] = useState();
+  // const [roomId, setRoomId] = useState("room1");
   const [name, setName] = useState("");
 
   useEffect(() => {
@@ -51,8 +52,13 @@ export default function App() {
       setLastNumber(called);
     });
 
-    socket.on("bingo-winner", ({ id }) => {
-      setWinner(id);
+    // socket.on("bingo-winner", ({ id }) => {
+    //   setWinner(id);
+    // });
+
+    socket.on("winner", (playerName) => {
+      setWinner(playerName);
+      alert(`🎉 ¡${playerName} ha hecho BINGO! 🏆`);
     });
 
     socket.on("invalid-bingo", () => {
@@ -100,28 +106,61 @@ export default function App() {
   if (!role)
     return (
       <div className="main">
-        <div className="container">
-          <img className="img-container" src={bingo}/>
-        <h1>!UNETE A LA DIVERSION! 🎲</h1>
+        <div className="left-main">
+          <div className="layer"></div>
+          <div className="layer"></div>
+          <div className="layer"></div>
+          <div className="layer"></div>
+        </div>
 
-        <label>ID de sala:</label>
-        <input
-          className="input"
-          value={roomId}
-          onChange={(e) => setRoomId(e.target.value)}
-        />
-        <br />
+        <div className="right-main">
+          <div className="container">
+            <img className="img-container" src={bingo} />
 
-        <label>Tu nombre:</label>
-        <input
-          className="input"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        />
-        <br />
+            <h1 className="text-main">!UNETE A LA DIVERSION! 🎲</h1>
 
-        <button onClick={() => handleRoleSelect("admin")}>Administrador</button>
-        <button onClick={() => handleRoleSelect("player")}>Jugador</button>
+            {/* <label>ID de sala:</label> */}
+            {/* <br /> */}
+
+            {/* <input
+              className="input"
+              value={roomId}
+              onChange={(e) => setRoomId(e.target.value)}
+            /> */}
+
+            {/* <InputCardComponent/> */}
+
+            <div className="wave-group">
+              <div  className="input-container">
+                <input
+                  required
+                  type="text"
+                  className="input"
+                  value={roomId}
+                  onChange={(e) => setRoomId(e.target.value)}
+                />
+                <span className="bar" />
+                <label className="label">
+                  <span className="label-char">ID de la sala</span>
+                </label>
+              </div>
+            </div>
+
+            <br />
+
+            <label>Tu nombre:</label>
+            <input
+              className="input"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
+            <br />
+
+            <button onClick={() => handleRoleSelect("admin")}>
+              Administrador
+            </button>
+            <button onClick={() => handleRoleSelect("player")}>Jugador</button>
+          </div>
         </div>
       </div>
     );
