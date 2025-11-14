@@ -187,11 +187,47 @@ body {
   transform: scale(1.2) rotate(10deg);
 }
 
+
+
+
+
+.bingo-card {
+  display: inline-block;
+  margin: 1rem;
+}
+
+.header, .row {
+  display: grid;
+  grid-template-columns: repeat(5, 60px);
+}
+
+.cell, .header div {
+  border: 1px solid #aaa;
+  padding: 10px;
+  margin: 1px;
+  background: white;
+}
+
+.header div {
+  font-weight: bold;
+  background: #4b8bf5;
+  color: white;
+}
+
+.cell.marked {
+  background: #81f581;
+}
+
+
+
+
+
+
 /* --- RESPONSIVE --- */
 @media (max-width: 900px) {
   .main {
     flex-direction: column;
-    height: 100vh;
+    height: 0vh;
     display: flex;
     background: linear-gradient(135deg, #8b0000, #c21807, #ff3b3b);
   }
@@ -235,6 +271,7 @@ body {
   .main {
     height: auto;
     }
+    
   .right-main {
     border-radius: 30px;
     max-width: 70vw;
@@ -256,4 +293,8 @@ body {
   .btn {
     width: 100%;
   }
-}
+} 
+
+
+
+
