@@ -231,11 +231,13 @@ body {
 
 
 @media (max-width: 400px) {
-
+  .main {
+    height: 70%;
+    }
   .right-main {
     border-radius: 30px;
     max-width: 70vw;
-    min-height: 70vh;
+    min-height: 80vh;
     flex: 0 0;
     margin: auto;
     display: flex;
